@@ -1,0 +1,249 @@
+.hero {
+  padding: 120px 0 78px;
+  text-align: center;
+}
+
+.hero h1 {
+  max-width: 920px;
+  margin: 16px auto 0;
+  font-size: clamp(2.4rem, 7vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.08em;
+}
+
+.hero h1 span,
+.projects-section h2 span {
+  color: var(--primary-light);
+}
+
+.hero-description {
+  max-width: 700px;
+  margin: 22px auto 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.9fr 0.9fr;
+  gap: 22px;
+}
+
+.feature-card {
+  min-height: 220px;
+  padding: 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-large {
+  grid-row: span 2;
+  min-height: 466px;
+}
+
+.feature-card h2,
+.split-section h2,
+.projects-section h2 {
+  font-size: clamp(1.7rem, 3.5vw, 3rem);
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.feature-card h3,
+.preview-card h3 {
+  font-size: 1.22rem;
+  letter-spacing: -0.04em;
+}
+
+.feature-card p,
+.preview-card p,
+.split-section p,
+.step-card p {
+  margin-top: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.orbit-visual {
+  height: 250px;
+  position: relative;
+  margin-bottom: 24px;
+  border-radius: 24px;
+  background: radial-gradient(circle at center, rgba(0, 227, 255, 0.2), transparent 30%), rgba(255, 255, 255, 0.035);
+  overflow: hidden;
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.planet-one {
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 35% 25%, #dffbff, #2dafff 35%, #0d276a 78%);
+  box-shadow: 0 0 60px rgba(0, 227, 255, 0.45);
+}
+
+.planet-two {
+  width: 38px;
+  height: 38px;
+  left: 18%;
+  top: 58%;
+  background: linear-gradient(135deg, #ff7be7, #702bff);
+}
+
+.planet-three {
+  width: 52px;
+  height: 52px;
+  right: 17%;
+  bottom: 18%;
+  background: linear-gradient(135deg, #ffe45e, #ff7b3d);
+}
+
+.mock-window {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 180px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(2, 5, 20, 0.78);
+  border: 1px solid var(--border);
+  transform: rotate(10deg);
+}
+
+.mock-bar {
+  width: 58px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--primary-light);
+  margin-bottom: 28px;
+}
+
+.upload-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.upload-box {
+  min-height: 155px;
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  padding: 20px;
+  text-align: center;
+  border: 1px dashed rgba(201, 167, 255, 0.45);
+  border-radius: 22px;
+  background: rgba(138, 92, 255, 0.08);
+  cursor: pointer;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--danger));
+  font-size: 1.4rem;
+}
+
+.file-feedback,
+.upload-box small {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.stack-list {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stack-list span {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--muted-strong);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.split-section {
+  padding: 110px 0 40px;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.steps {
+  display: grid;
+  gap: 16px;
+}
+
+.step-card {
+  padding: 22px;
+}
+
+.step-card span {
+  color: var(--secondary);
+  font-weight: 900;
+}
+
+.step-card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.1rem;
+}
+
+.projects-section {
+  padding: 70px 0 30px;
+  text-align: center;
+}
+
+.projects-section h2 {
+  max-width: 720px;
+  margin: 12px auto 0;
+}
+
+.preview-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.preview-card {
+  padding: 26px;
+}
+
+.preview-number {
+  display: block;
+  margin-bottom: 28px;
+  color: var(--primary-light);
+  font-size: 2.6rem;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+}

@@ -1,0 +1,99 @@
+.auth-page {
+  display: grid;
+  place-items: center;
+  padding: 36px 20px;
+}
+
+.auth-layout {
+  width: min(980px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 22px;
+}
+
+.auth-panel {
+  padding: 34px;
+}
+
+.auth-brand {
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(138, 92, 255, 0.26), transparent 38%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+}
+
+.auth-brand h1 {
+  margin-top: 12px;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.08em;
+}
+
+.auth-brand p,
+.login-card p,
+.auth-footer-text {
+  margin-top: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.auth-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.auth-stats div {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.auth-stats strong {
+  display: block;
+  font-size: 1.3rem;
+}
+
+.auth-stats span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.login-card {
+  align-self: center;
+}
+
+.login-card h2 {
+  font-size: 2rem;
+  letter-spacing: -0.06em;
+}
+
+.login-card form {
+  margin-top: 26px;
+  display: grid;
+  gap: 18px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-row a,
+.auth-footer-text a {
+  color: var(--primary-light);
+  font-weight: 700;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa do Dev | Roadmap personalizado para sua carreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/main.css" />
+</head>
+<body>
+  <div class="page-glow"></div>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-icon">M</span>
+      <span>Mapa do Dev</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Menu principal">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#exemplo">Exemplo</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-container">
+      <p class="eyebrow">Roadmap com IA para estudantes e devs júnior</p>
+      <h1>Transforme seu currículo em um <span>plano real de evolução.</span></h1>
+      <p class="hero-description">
+        Envie seu currículo em PDF e receba uma análise com pontos fortes, lacunas técnicas,
+        exercícios diários, metas semanais e um habit tracker para acompanhar sua evolução.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#upload-curriculo">Enviar meu currículo</a>
+        <a class="btn btn-secondary" href="dashboard.html">Ver exemplo de perfil</a>
+      </div>
+    </section>
+
+    <section class="feature-grid section-container" id="recursos">
+      <article class="feature-card card-large floating-card">
+        <div class="orbit-visual">
+          <span class="planet planet-one"></span>
+          <span class="planet planet-two"></span>
+          <span class="planet planet-three"></span>
+          <div class="mock-window">
+            <div class="mock-bar"></div>
+            <p>Currículo analisado</p>
+            <strong>Roadmap gerado</strong>
+          </div>
+        </div>
+        <h2>Análise inteligente do seu currículo</h2>
+        <p>A IA identifica tecnologias que você já domina, lacunas para vagas júnior e próximos passos práticos.</p>
+      </article>
+
+      <article class="feature-card upload-card" id="upload-curriculo">
+        <span class="card-tag">PDF</span>
+        <h2>Envie seu currículo</h2>
+        <p>Faça upload de um arquivo PDF para simular a análise inicial do Mapa do Dev.</p>
+
+        <label class="upload-box" for="resumeFile">
+          <input type="file" id="resumeFile" accept="application/pdf" />
+          <span class="upload-icon">↥</span>
+          <strong>Clique para selecionar</strong>
+          <small>Somente PDF por enquanto</small>
+        </label>
+
+        <p class="file-feedback" id="fileFeedback">Nenhum arquivo selecionado.</p>
+        <button class="btn btn-primary btn-full" id="analyzeButton" type="button">Analisar currículo</button>
+      </article>
+
+      <article class="feature-card small-card">
+        <h3>Exercícios diários</h3>
+        <p>Práticas curtas baseadas nas lacunas encontradas no currículo.</p>
+      </article>
+
+      <article class="feature-card small-card">
+        <h3>Metas semanais</h3>
+        <p>Objetivos simples para manter constância sem sobrecarregar.</p>
+      </article>
+
+      <article class="feature-card stack-card">
+        <h3>Stack sugerida</h3>
+        <div class="stack-list">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Python</span>
+          <span>Flask</span>
+          <span>MySQL</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section-container split-section" id="como-funciona">
+      <div>
+        <p class="eyebrow">Como funciona</p>
+        <h2>Do PDF ao plano de estudos em poucos passos</h2>
+        <p>
+          A ideia do MVP é simples: o usuário envia o currículo, a IA lê as informações principais
+          e transforma isso em um painel claro de evolução profissional.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step-card">
+          <span>01</span>
+          <strong>Upload do currículo</strong>
+          <p>O usuário envia o PDF com suas experiências, habilidades e formação.</p>
+        </div>
+        <div class="step-card">
+          <span>02</span>
+          <strong>Análise da IA</strong>
+          <p>O sistema identifica pontos fortes, pontos fracos e tecnologias ausentes.</p>
+        </div>
+        <div class="step-card">
+          <span>03</span>
+          <strong>Plano personalizado</strong>
+          <p>O usuário recebe roadmap, exercícios, metas e acompanhamento.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container projects-section" id="exemplo">
+      <p class="eyebrow centered">Prévia do resultado</p>
+      <h2>Um painel pensado para quem busca estágio ou vaga júnior</h2>
+
+      <div class="preview-grid">
+        <article class="preview-card">
+          <span class="preview-number">82%</span>
+          <h3>Compatibilidade com vaga júnior</h3>
+          <p>Baseado em habilidades técnicas, projetos e experiência prática.</p>
+        </article>
+        <article class="preview-card">
+          <span class="preview-number">4</span>
+          <h3>Lacunas prioritárias</h3>
+          <p>Banco de dados, deploy, testes e organização de projetos.</p>
+        </article>
+        <article class="preview-card">
+          <span class="preview-number">30d</span>
+          <h3>Plano inicial</h3>
+          <p>Roadmap objetivo para desenvolver portfólio e prática diária.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Mapa do Dev. Projeto MVP para análise de currículo com IA.</p>
+    <div>
+      <a href="login.html">Entrar</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+  </footer>
+
+  <script src="js/home.js"></script>
+</body>
+</html>

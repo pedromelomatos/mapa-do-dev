@@ -1,0 +1,107 @@
+:root {
+  --bg: #03061a;
+  --bg-soft: #070b22;
+  --surface: rgba(16, 20, 45, 0.74);
+  --surface-strong: rgba(22, 27, 58, 0.92);
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #f8f7ff;
+  --muted: #a6a4bd;
+  --muted-strong: #d7d3ea;
+  --primary: #8a5cff;
+  --primary-light: #c9a7ff;
+  --secondary: #00e3ff;
+  --success: #4ade80;
+  --warning: #ffe45e;
+  --danger: #ff6b95;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --container: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(99, 71, 255, 0.17), transparent 28%),
+    radial-gradient(circle at top right, rgba(0, 227, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, #05071c 0%, var(--bg) 45%, #020515 100%);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: linear-gradient(to bottom, #000, transparent 82%);
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+.page-glow {
+  position: fixed;
+  inset: auto 10% 20% auto;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: rgba(116, 75, 255, 0.18);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.section-container {
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.eyebrow {
+  color: var(--primary-light);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.centered {
+  text-align: center;
+}

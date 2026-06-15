@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil | Mapa do Dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/main.css" />
+</head>
+<body>
+  <div class="page-glow"></div>
+
+  <header class="site-header dashboard-header">
+    <a class="logo" href="index.html">
+      <span class="logo-icon">M</span>
+      <span>Mapa do Dev</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Menu do painel">
+      <a href="#analise">Análise</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#habitos">Hábitos</a>
+      <a href="index.html">Sair</a>
+    </nav>
+  </header>
+
+  <main class="dashboard section-container">
+    <section class="profile-hero">
+      <div>
+        <p class="eyebrow">Resultado da análise</p>
+        <h1>Seu mapa de evolução como desenvolvedor</h1>
+        <p>
+          Com base no currículo enviado, montamos uma visão inicial de pontos fortes,
+          lacunas técnicas e próximos passos para buscar estágio ou vaga júnior.
+        </p>
+      </div>
+
+      <div class="score-card">
+        <span>Compatibilidade júnior</span>
+        <strong>78%</strong>
+        <small>Bom potencial, com ajustes no portfólio e deploy.</small>
+      </div>
+    </section>
+
+    <section class="dashboard-grid" id="analise">
+      <article class="dashboard-card">
+        <div class="card-heading">
+          <span class="card-icon">✓</span>
+          <h2>Pontos fortes</h2>
+        </div>
+        <ul class="insight-list positive-list">
+          <li>Base em HTML, CSS e JavaScript.</li>
+          <li>Conhecimento em Python e Flask.</li>
+          <li>Projetos práticos com aplicações web.</li>
+          <li>Noções de banco de dados relacional.</li>
+        </ul>
+      </article>
+
+      <article class="dashboard-card">
+        <div class="card-heading">
+          <span class="card-icon warning">!</span>
+          <h2>Pontos fracos</h2>
+        </div>
+        <ul class="insight-list weak-list">
+          <li>Pouca evidência de testes automatizados.</li>
+          <li>Deploy e ambiente de produção ainda pouco destacados.</li>
+          <li>Projetos precisam de README mais profissional.</li>
+          <li>Faltam métricas claras de impacto.</li>
+        </ul>
+      </article>
+
+      <article class="dashboard-card">
+        <div class="card-heading">
+          <span class="card-icon">→</span>
+          <h2>Próximos passos</h2>
+        </div>
+        <div class="next-actions">
+          <div>
+            <strong>1. Melhorar portfólio</strong>
+            <p>Adicionar prints, descrição técnica, links e problema resolvido.</p>
+          </div>
+          <div>
+            <strong>2. Subir um projeto em produção</strong>
+            <p>Publicar uma aplicação Flask com banco de dados e login.</p>
+          </div>
+          <div>
+            <strong>3. Estudar testes básicos</strong>
+            <p>Aplicar testes simples em rotas e funções principais.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="dashboard-card compact-card">
+        <h2>Resumo da IA</h2>
+        <p>
+          Seu perfil está alinhado com vagas de estágio em desenvolvimento web, principalmente
+          se você fortalecer deploy, documentação e organização dos projetos.
+        </p>
+      </article>
+    </section>
+
+    <section class="roadmap-section" id="roadmap">
+      <div class="section-title-row">
+        <div>
+          <p class="eyebrow">Roadmap personalizado</p>
+          <h2>Plano de estudos de 30 dias</h2>
+        </div>
+        <span class="status-pill">Em andamento</span>
+      </div>
+
+      <div class="roadmap-timeline">
+        <article class="roadmap-card active">
+          <span>Semana 1</span>
+          <h3>Organização e portfólio</h3>
+          <p>Revisar currículo, GitHub, README e páginas dos projetos.</p>
+        </article>
+        <article class="roadmap-card">
+          <span>Semana 2</span>
+          <h3>Backend com Flask</h3>
+          <p>Criar rotas, autenticação simples, CRUD e conexão com MySQL.</p>
+        </article>
+        <article class="roadmap-card">
+          <span>Semana 3</span>
+          <h3>Deploy e produção</h3>
+          <p>Publicar o projeto em uma VPS ou hospedagem compatível.</p>
+        </article>
+        <article class="roadmap-card">
+          <span>Semana 4</span>
+          <h3>Testes e candidatura</h3>
+          <p>Adicionar testes básicos e aplicar para vagas com currículo ajustado.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="dashboard-grid bottom-grid" id="habitos">
+      <article class="dashboard-card daily-card">
+        <h2>Exercícios diários</h2>
+        <div class="exercise-list">
+          <label><input type="checkbox" checked /> Resolver 1 exercício de lógica em Python</label>
+          <label><input type="checkbox" checked /> Melhorar uma seção do README</label>
+          <label><input type="checkbox" /> Criar uma rota Flask nova</label>
+          <label><input type="checkbox" /> Revisar 20 minutos de SQL</label>
+        </div>
+      </article>
+
+      <article class="dashboard-card habit-card">
+        <h2>Habit tracker</h2>
+        <div class="habit-grid" aria-label="Rastreador de hábitos">
+          <span class="done">S</span>
+          <span class="done">T</span>
+          <span class="done">Q</span>
+          <span>Q</span>
+          <span>S</span>
+          <span>S</span>
+          <span>D</span>
+        </div>
+        <p>3 dias concluídos nesta semana. Continue mantendo constância.</p>
+      </article>
+
+      <article class="dashboard-card goals-card">
+        <h2>Metas semanais</h2>
+        <div class="goal-item">
+          <span>70%</span>
+          <div>
+            <strong>Finalizar landing page do portfólio</strong>
+            <progress value="70" max="100"></progress>
+          </div>
+        </div>
+        <div class="goal-item">
+          <span>40%</span>
+          <div>
+            <strong>Publicar projeto Flask</strong>
+            <progress value="40" max="100"></progress>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Mapa do Dev. Dashboard demonstrativo.</p>
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+.btn {
+  min-height: 46px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  font-weight: 800;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), #6c35ff);
+  box-shadow: 0 14px 35px rgba(117, 78, 255, 0.35);
+}
+
+.btn-secondary {
+  color: var(--text);
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.feature-card,
+.preview-card,
+.auth-panel,
+.dashboard-card,
+.roadmap-card,
+.score-card,
+.step-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+    var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.form-group {
+  display: grid;
+  gap: 10px;
+}
+
+.form-group label {
+  color: var(--muted-strong);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.055);
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: rgba(201, 167, 255, 0.7);
+  box-shadow: 0 0 0 4px rgba(138, 92, 255, 0.14);
+}
+
+.card-tag,
+.status-pill {
+  width: fit-content;
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: var(--primary-light);
+  background: rgba(138, 92, 255, 0.13);
+  border: 1px solid rgba(201, 167, 255, 0.15);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
