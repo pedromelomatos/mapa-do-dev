@@ -7,14 +7,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/main.css" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_symbol.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
 </head>
 <body>
   <div class="page-glow"></div>
 
   <header class="site-header dashboard-header">
-    <a class="logo" href="index.html">
-      <span class="logo-icon">M</span>
+    <a class="logo" href="{{ url_for('home') }}">
+      <span class="logo-icon"><img src="{{ url_for('static', filename='img/logo_symbol.png') }}" alt=""></span>
       <span>Mapa do Dev</span>
     </a>
 
@@ -22,7 +23,7 @@
       <a href="#analise">Análise</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#habitos">Hábitos</a>
-      <a href="index.html">Sair</a>
+      <a href="{{ url_for('home') }}">Sair</a>
     </nav>
   </header>
 
@@ -183,6 +184,6 @@
     <p>© 2026 Mapa do Dev. Dashboard demonstrativo.</p>
   </footer>
 
-  <script src="js/dashboard.js"></script>
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 </body>
 </html>

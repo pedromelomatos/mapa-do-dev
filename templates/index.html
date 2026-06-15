@@ -7,14 +7,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/main.css" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_symbol.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
 </head>
 <body>
   <div class="page-glow"></div>
 
   <header class="site-header">
-    <a class="logo" href="index.html">
-      <span class="logo-icon">M</span>
+    <a class="logo" href="{{ url_for('home') }}">
+      <span class="logo-icon"><img src="{{ url_for('static', filename='img/logo_symbol.png') }}" alt=""></span>
       <span>Mapa do Dev</span>
     </a>
 
@@ -22,7 +23,7 @@
       <a href="#como-funciona">Como funciona</a>
       <a href="#recursos">Recursos</a>
       <a href="#exemplo">Exemplo</a>
-      <a href="login.html">Login</a>
+      <a href="{{ url_for('login') }}">Login</a>
     </nav>
   </header>
 
@@ -37,7 +38,7 @@
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#upload-curriculo">Enviar meu currículo</a>
-        <a class="btn btn-secondary" href="dashboard.html">Ver exemplo de perfil</a>
+        <a class="btn btn-secondary" href="{{ url_for('dashboard') }}">Ver exemplo de perfil</a>
       </div>
     </section>
 
@@ -70,7 +71,7 @@
         </label>
 
         <p class="file-feedback" id="fileFeedback">Nenhum arquivo selecionado.</p>
-        <button class="btn btn-primary btn-full" id="analyzeButton" type="button">Analisar currículo</button>
+        <button class="btn btn-primary btn-full" id="analyzeButton" type="button" data-dashboard-url="{{ url_for('dashboard') }}">Analisar currículo</button>
       </article>
 
       <article class="feature-card small-card">
@@ -152,11 +153,11 @@
   <footer class="site-footer">
     <p>© 2026 Mapa do Dev. Projeto MVP para análise de currículo com IA.</p>
     <div>
-      <a href="login.html">Entrar</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="{{ url_for('login') }}">Entrar</a>
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
     </div>
   </footer>
 
-  <script src="js/home.js"></script>
+  <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 </body>
 </html>

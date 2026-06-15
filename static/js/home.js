@@ -31,6 +31,6 @@ analyzeButton?.addEventListener('click', () => {
   analyzeButton.disabled = true;
 
   setTimeout(() => {
-    window.location.href = 'dashboard.html';
+    window.location.href = analyzeButton.dataset.dashboardUrl || '/dashboard';
   }, 900);
 });
