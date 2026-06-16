@@ -1,4 +1,4 @@
-from database import db
+from models.database import db
 
 class Usuario(db.Model):
 
@@ -7,4 +7,4 @@ class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     nome = db.Column(db.String(50), nullable = False)
     email = db.Column(db.String(255), nullable = False, unique = True)
-    senha = db.Column(db.String(128), nullable = False)
+    senha = db.Column(db.String(), nullable = False)

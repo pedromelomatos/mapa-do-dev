@@ -2,7 +2,7 @@ from flask import Flask, url_for, render_template
 from flask_sqlalchemy import SQLAlchemy
 from models.database import db
 from dotenv import load_dotenv
-from models.database import db
+from models.usuario import Usuario
 import os
 
 app =  Flask(__name__)
@@ -31,5 +31,11 @@ def login():
 def dashboard():
     return render_template("dashboard.html")
 
+with app.app_context(): #with aqui é usado pra nos "conectarmos" a aplicação flask antes da gente estar app.run ela. Ativamos ela e desativamos após criarmos o db.
+    db.create_all()
+    print("conexão")
+
 if __name__ == '__main__':
+
     app.run(host="0.0.0.0",debug=True)
+    
