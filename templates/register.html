@@ -47,17 +47,17 @@
       <form id="registerForm" data-login-url="{{ url_for('login') }}">
         <div class="form-group">
           <label for="name">Nome</label>
-          <input type="text" id="name" placeholder="Seu nome" required />
+          <input type="text" id="name" placeholder="Seu nome" required name="nomeForm" />
         </div>
 
         <div class="form-group">
           <label for="email">E-mail</label>
-          <input type="email" id="email" placeholder="seuemail@email.com" required />
+          <input type="email" id="email" placeholder="seuemail@email.com" required name="emailForm"/>
         </div>
 
         <div class="form-group">
           <label for="password">Senha</label>
-          <input type="password" id="password" placeholder="Crie uma senha" required />
+          <input type="password" id="password" placeholder="Crie uma senha" required name="senhaForm"/>
         </div>
 
         <button class="btn btn-primary btn-full" type="submit">Criar cadastro</button>

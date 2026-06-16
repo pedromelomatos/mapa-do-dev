@@ -23,7 +23,7 @@
       <a href="#como-funciona">Como funciona</a>
       <a href="#recursos">Recursos</a>
       <a href="#exemplo">Exemplo</a>
-      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('auth.login') }}">Login</a>
     </nav>
   </header>
 
@@ -38,7 +38,7 @@
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#upload-curriculo">Enviar meu currículo</a>
-        <a class="btn btn-secondary" href="{{ url_for('dashboard') }}">Ver exemplo de perfil</a>
+        <a class="btn btn-secondary" href="{{ url_for('dashboard.dashboard_home') }}">Ver exemplo de perfil</a>
       </div>
     </section>
 
@@ -71,7 +71,7 @@
         </label>
 
         <p class="file-feedback" id="fileFeedback">Nenhum arquivo selecionado.</p>
-        <button class="btn btn-primary btn-full" id="analyzeButton" type="button" data-dashboard-url="{{ url_for('dashboard') }}">Analisar currículo</button>
+        <button class="btn btn-primary btn-full" id="analyzeButton" type="button" data-dashboard-url="{{ url_for('dashboard.dashboard_home') }}">Analisar currículo</button>
       </article>
 
       <article class="feature-card small-card">
@@ -153,11 +153,10 @@
   <footer class="site-footer">
     <p>© 2026 Mapa do Dev. Projeto MVP para análise de currículo com IA.</p>
     <div>
-      <a href="{{ url_for('login') }}">Entrar</a>
-      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('auth.login') }}">Entrar</a>
+      <a href="{{ url_for('dashboard.dashboard_home') }}">Dashboard</a>
     </div>
   </footer>
 
-  <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 </body>
 </html>
