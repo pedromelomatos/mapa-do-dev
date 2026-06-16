@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login | Mapa do Dev</title>
+  <title>Cadastro | Mapa do Dev</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,30 +21,35 @@
       </a>
 
       <div>
-        <p class="eyebrow">Bem-vindo de volta</p>
-        <h1>Acompanhe seu plano de evolução dev.</h1>
+        <p class="eyebrow">Comece seu mapa</p>
+        <h1>Crie sua conta para salvar sua evolução.</h1>
         <p>
-          Entre para continuar seu roadmap e acompanhar seu plano de estudos de 30 dias.
+          Faça seu cadastro e depois envie o currículo para gerar uma análise personalizada com plano de estudos.
         </p>
       </div>
 
       <div class="auth-stats">
         <div>
-          <strong>30 dias</strong>
-          <span>Plano inicial</span>
+          <strong>3 dados</strong>
+          <span>Cadastro simples</span>
         </div>
         <div>
-          <strong>4</strong>
-          <span>Semanas guiadas</span>
+          <strong>PDF</strong>
+          <span>Análise depois</span>
         </div>
       </div>
     </section>
 
     <section class="auth-panel login-card">
-      <h2>Entrar na conta</h2>
-      <p>Acesse seu painel personalizado do Mapa do Dev.</p>
+      <h2>Criar conta</h2>
+      <p>Use nome, e-mail e senha para preparar seu perfil no Mapa do Dev.</p>
 
-      <form id="loginForm" data-dashboard-url="{{ url_for('dashboard') }}">
+      <form id="registerForm" data-login-url="{{ url_for('login') }}">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" placeholder="Seu nome" required />
+        </div>
+
         <div class="form-group">
           <label for="email">E-mail</label>
           <input type="email" id="email" placeholder="seuemail@email.com" required />
@@ -52,24 +57,16 @@
 
         <div class="form-group">
           <label for="password">Senha</label>
-          <input type="password" id="password" placeholder="Digite sua senha" required />
+          <input type="password" id="password" placeholder="Crie uma senha" required />
         </div>
 
-        <div class="form-row">
-          <label class="checkbox-label">
-            <input type="checkbox" />
-            <span>Lembrar de mim</span>
-          </label>
-          <a href="#">Esqueci minha senha</a>
-        </div>
-
-        <button class="btn btn-primary btn-full" type="submit">Entrar</button>
+        <button class="btn btn-primary btn-full" type="submit">Criar cadastro</button>
       </form>
 
-      <p class="auth-footer-text">Ainda não tem conta? <a href="/register">Crie seu cadastro</a></p>
+      <p class="auth-footer-text">Já tem conta? <a href="{{ url_for('login') }}">Entre no login</a></p>
     </section>
   </main>
 
-  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/register.js') }}"></script>
 </body>
 </html>

@@ -22,7 +22,6 @@
     <nav class="main-nav" aria-label="Menu do painel">
       <a href="#analise">Análise</a>
       <a href="#roadmap">Roadmap</a>
-      <a href="#habitos">Hábitos</a>
       <a href="{{ url_for('home') }}">Sair</a>
     </nav>
   </header>
@@ -134,56 +133,10 @@
         </article>
       </div>
     </section>
-
-    <section class="dashboard-grid bottom-grid" id="habitos">
-      <article class="dashboard-card daily-card">
-        <h2>Exercícios diários</h2>
-        <div class="exercise-list">
-          <label><input type="checkbox" checked /> Resolver 1 exercício de lógica em Python</label>
-          <label><input type="checkbox" checked /> Melhorar uma seção do README</label>
-          <label><input type="checkbox" /> Criar uma rota Flask nova</label>
-          <label><input type="checkbox" /> Revisar 20 minutos de SQL</label>
-        </div>
-      </article>
-
-      <article class="dashboard-card habit-card">
-        <h2>Habit tracker</h2>
-        <div class="habit-grid" aria-label="Rastreador de hábitos">
-          <span class="done">S</span>
-          <span class="done">T</span>
-          <span class="done">Q</span>
-          <span>Q</span>
-          <span>S</span>
-          <span>S</span>
-          <span>D</span>
-        </div>
-        <p>3 dias concluídos nesta semana. Continue mantendo constância.</p>
-      </article>
-
-      <article class="dashboard-card goals-card">
-        <h2>Metas semanais</h2>
-        <div class="goal-item">
-          <span>70%</span>
-          <div>
-            <strong>Finalizar landing page do portfólio</strong>
-            <progress value="70" max="100"></progress>
-          </div>
-        </div>
-        <div class="goal-item">
-          <span>40%</span>
-          <div>
-            <strong>Publicar projeto Flask</strong>
-            <progress value="40" max="100"></progress>
-          </div>
-        </div>
-      </article>
-    </section>
   </main>
 
   <footer class="site-footer">
     <p>© 2026 Mapa do Dev. Dashboard demonstrativo.</p>
   </footer>
-
-  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 </body>
 </html>

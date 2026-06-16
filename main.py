@@ -1,6 +1,8 @@
 from flask import Flask, url_for, render_template
 from flask_sqlalchemy import SQLAlchemy
+from models.database import db
 from dotenv import load_dotenv
+from models.database import db
 import os
 
 app =  Flask(__name__)
@@ -12,8 +14,9 @@ senha = os.getenv("senha")
 host = os.getenv("host")
 nome_do_banco = os.getenv("nome_do_banco")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg2://{user}:{senha}@{host}/{nome_do_banco}"
+app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg://{user}:{senha}@{host}/{nome_do_banco}"
 
+db.init_app(app)
 
 
 @app.route("/", methods=['GET', 'POST'])

@@ -3,7 +3,6 @@
   .split-section,
   .profile-hero,
   .dashboard-grid,
-  .bottom-grid,
   .roadmap-timeline,
   .auth-layout {
     grid-template-columns: 1fr 1fr;
@@ -49,7 +48,6 @@
   .split-section,
   .profile-hero,
   .dashboard-grid,
-  .bottom-grid,
   .roadmap-timeline,
   .auth-layout,
   .auth-stats {
