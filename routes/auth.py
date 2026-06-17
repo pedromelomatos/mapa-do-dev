@@ -9,7 +9,7 @@ def login():
     elif request.method == 'POST':
         email = request.form['emailForm']
         senha = request.form['senhaForm']
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard.dashboard_home'))
 
 @auth.route("/register", methods=['GET', 'POST'])
 def register():

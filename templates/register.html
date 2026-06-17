@@ -44,7 +44,7 @@
       <h2>Criar conta</h2>
       <p>Use nome, e-mail e senha para preparar seu perfil no Mapa do Dev.</p>
 
-      <form id="registerForm" data-login-url="{{ url_for('login') }}">
+      <form id="registerForm" data-login-url="{{ url_for('auth.login') }}">
         <div class="form-group">
           <label for="name">Nome</label>
           <input type="text" id="name" placeholder="Seu nome" required name="nomeForm" />
@@ -63,7 +63,7 @@
         <button class="btn btn-primary btn-full" type="submit">Criar cadastro</button>
       </form>
 
-      <p class="auth-footer-text">Já tem conta? <a href="{{ url_for('login') }}">Entre no login</a></p>
+      <p class="auth-footer-text">Já tem conta? <a href="{{ url_for('auth.login') }}">Entre no login</a></p>
     </section>
   </main>
 
