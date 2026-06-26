@@ -44,7 +44,7 @@
       <h2>Criar conta</h2>
       <p>Use nome, e-mail e senha para preparar seu perfil no Mapa do Dev.</p>
 
-      <form id="registerForm" data-login-url="{{ url_for('auth.login') }}">
+      <form id="registerForm" method="POST">
         <div class="form-group">
           <label for="name">Nome</label>
           <input type="text" id="name" placeholder="Seu nome" required name="nomeForm" />
@@ -67,6 +67,5 @@
     </section>
   </main>
 
-  <script src="{{ url_for('static', filename='js/register.js') }}"></script>
 </body>
 </html>
