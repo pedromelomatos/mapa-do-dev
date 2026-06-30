@@ -3,8 +3,15 @@ from flask_login import login_required
 from routes.storage import dados_temporarios
 from pypdf import PdfReader
 from io import BytesIO
+import re
 
 dashboard = Blueprint('dashboard', __name__, template_folder='../templates')
+
+def limpar_texto(texto):
+    #re.sub(padrão, substituição, variavel)
+    texto = re.sub(r'\n+', '\n', texto)
+    texto = re.sub(r'[ \t]+', ' ', texto)
+    return texto.strip()
 
 def ler_pdf():
     arquivo = request.files.get("pdf")
@@ -19,8 +26,9 @@ def ler_pdf():
         texto_da_pagina = pagina.extract_text()
 
         if texto_da_pagina:
-            texto_final += texto_da_pagina
-    return texto_final
+            texto_final += texto_da_pagina 
+
+    return limpar_texto(texto_final)
 
 
 @dashboard.route("/dashboard/<id_curriculo>", methods=['GET', 'POST'])
