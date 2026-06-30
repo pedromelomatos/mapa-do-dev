@@ -43,7 +43,9 @@
     <section class="auth-panel login-card">
       <h2>Entrar na conta</h2>
       <p>Acesse seu painel personalizado do Mapa do Dev.</p>
-
+      {% if erro %}
+        <p>Dados inválidos enviados. Tente novamente.</p>
+      {% endif %}
       <form id="loginForm" method="POST">
         <div class="form-group">
           <label for="email">E-mail</label>

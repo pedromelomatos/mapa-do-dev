@@ -32,7 +32,7 @@ def login():
         usuario_db = db.session.query(Usuario).filter_by(email=email, senha=senha).first()  
         if not usuario_db:
             print("Usuário inexistente")
-            return redirect(url_for('auth.login'))
+            return render_template('login.html', erro='Dados enviados inválidos.')
         else:
             login_user(usuario_db)
             print("Usuário Logado")
