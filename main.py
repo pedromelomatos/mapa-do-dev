@@ -1,6 +1,6 @@
 from flask import Flask, url_for, render_template, request, redirect, blueprints
 from flask_sqlalchemy import SQLAlchemy
-from routes.auth import auth
+from routes.auth import auth, lm
 from routes.dashboard import dashboard
 from models.database import db
 from dotenv import load_dotenv
@@ -14,8 +14,12 @@ user = os.getenv("user")
 senha = os.getenv("senha")
 host = os.getenv("host")
 nome_do_banco = os.getenv("nome_do_banco")
+secretkey = os.getenv("secret_key")
 app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg://{user}:{senha}@{host}/{nome_do_banco}"
 db.init_app(app)
+
+app.secret_key = secretkey
+lm.init_app(app)
 
 app.register_blueprint(auth)
 app.register_blueprint(dashboard)
