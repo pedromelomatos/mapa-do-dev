@@ -32,29 +32,29 @@
         <p class="eyebrow">Resultado da análise</p>
         <h1>Seu mapa de evolução como desenvolvedor</h1>
         <p>
-          Com base no currículo enviado, montamos uma visão inicial de pontos fortes,
-          lacunas técnicas e próximos passos para buscar estágio ou vaga júnior.
+          {{ analise.analise_compatibilidade }}
         </p>
       </div>
 
       <div class="score-card">
         <span>Compatibilidade júnior</span>
-        <strong>78%</strong>
-        <small>Bom potencial, com ajustes no portfólio e deploy.</small>
+        <strong>{{ analise.compatibilidade_junior }}</strong>
+        <small>{{ analise.analise_compatibilidade }}</small>
       </div>
     </section>
 
     <section class="dashboard-grid" id="analise">
       <article class="dashboard-card">
         <div class="card-heading">
-          <span class="card-icon">✓</span>
+          <span class="card-icon">&check;</span>
           <h2>Pontos fortes</h2>
         </div>
         <ul class="insight-list positive-list">
-          <li>Base em HTML, CSS e JavaScript.</li>
-          <li>Conhecimento em Python e Flask.</li>
-          <li>Projetos práticos com aplicações web.</li>
-          <li>Noções de banco de dados relacional.</li>
+          {% for ponto in analise.pontos_fortes %}
+            <li>{{ ponto }}</li>
+          {% else %}
+            <li>Nenhum ponto forte foi retornado pela análise.</li>
+          {% endfor %}
         </ul>
       </article>
 
@@ -64,79 +64,67 @@
           <h2>Pontos fracos</h2>
         </div>
         <ul class="insight-list weak-list">
-          <li>Pouca evidência de testes automatizados.</li>
-          <li>Deploy e ambiente de produção ainda pouco destacados.</li>
-          <li>Projetos precisam de README mais profissional.</li>
-          <li>Faltam métricas claras de impacto.</li>
+          {% for ponto in analise.pontos_fracos %}
+            <li>{{ ponto }}</li>
+          {% else %}
+            <li>Nenhum ponto fraco foi retornado pela análise.</li>
+          {% endfor %}
         </ul>
       </article>
 
       <article class="dashboard-card">
         <div class="card-heading">
-          <span class="card-icon">→</span>
+          <span class="card-icon">&rarr;</span>
           <h2>Próximos passos</h2>
         </div>
         <div class="next-actions">
-          <div>
-            <strong>1. Melhorar portfólio</strong>
-            <p>Adicionar prints, descrição técnica, links e problema resolvido.</p>
-          </div>
-          <div>
-            <strong>2. Subir um projeto em produção</strong>
-            <p>Publicar uma aplicação Flask com banco de dados e login.</p>
-          </div>
-          <div>
-            <strong>3. Estudar testes básicos</strong>
-            <p>Aplicar testes simples em rotas e funções principais.</p>
-          </div>
+          {% for passo in analise.proximos_passos %}
+            <div>
+              <strong>{{ loop.index }}. Próximo passo</strong>
+              <p>{{ passo }}</p>
+            </div>
+          {% else %}
+            <div>
+              <strong>1. Próximo passo</strong>
+              <p>Nenhum próximo passo foi retornado pela análise.</p>
+            </div>
+          {% endfor %}
         </div>
       </article>
 
       <article class="dashboard-card compact-card">
         <h2>Resumo da IA</h2>
         <p>
-          Seu perfil está alinhado com vagas de estágio em desenvolvimento web, principalmente
-          se você fortalecer deploy, documentação e organização dos projetos.
+          {{ analise.resumo_ia }}
         </p>
       </article>
     </section>
 
     <section class="roadmap-section" id="roadmap">
+      {% set roadmap = analise.roadmap_personalizado %}
       <div class="section-title-row">
         <div>
           <p class="eyebrow">Roadmap personalizado</p>
-          <h2>Plano de estudos de 30 dias</h2>
+          <h2>{{ roadmap.titulo }}</h2>
         </div>
-        <span class="status-pill">Em andamento</span>
+        <span class="status-pill">{{ roadmap.status }}</span>
       </div>
 
       <div class="roadmap-timeline">
-        <article class="roadmap-card active">
-          <span>Semana 1</span>
-          <h3>Organização e portfólio</h3>
-          <p>Revisar currículo, GitHub, README e páginas dos projetos.</p>
-        </article>
-        <article class="roadmap-card">
-          <span>Semana 2</span>
-          <h3>Backend com Flask</h3>
-          <p>Criar rotas, autenticação simples, CRUD e conexão com MySQL.</p>
-        </article>
-        <article class="roadmap-card">
-          <span>Semana 3</span>
-          <h3>Deploy e produção</h3>
-          <p>Publicar o projeto em uma VPS ou hospedagem compatível.</p>
-        </article>
-        <article class="roadmap-card">
-          <span>Semana 4</span>
-          <h3>Testes e candidatura</h3>
-          <p>Adicionar testes básicos e aplicar para vagas com currículo ajustado.</p>
-        </article>
+        {% for chave in ["semana_1", "semana_2", "semana_3", "semana_4"] %}
+          {% set semana = roadmap[chave] %}
+          <article class="roadmap-card {% if loop.first %}active{% endif %}">
+            <span>Semana {{ loop.index }}</span>
+            <h3>{{ semana.titulo }}</h3>
+            <p>{{ semana.descricao }}</p>
+          </article>
+        {% endfor %}
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Mapa do Dev. Dashboard demonstrativo.</p>
+    <p>&copy; 2026 Mapa do Dev. Dashboard com análise personalizada.</p>
   </footer>
 </body>
 </html>

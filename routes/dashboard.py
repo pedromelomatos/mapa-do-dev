@@ -7,6 +7,7 @@ from io import BytesIO
 from dotenv import load_dotenv
 import re
 import os
+import json
 
 load_dotenv()
 
@@ -115,5 +116,6 @@ Currículo para análise:
 """ + curriculo
 )
     print(resposta.text)
-    return render_template("dashboard.html")
+    analise = json.loads(resposta.text)
+    return render_template("dashboard.html", analise=analise)
 
