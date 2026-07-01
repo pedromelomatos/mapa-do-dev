@@ -1,14 +1,18 @@
 from flask import url_for, render_template, request, redirect, Blueprint
 from models.usuario import Usuario
 from models.database import db
+from routes.storage import dados_temporarios
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 import hashlib
+import uuid
 
 lm = LoginManager()
 
 auth = Blueprint('auth', __name__, template_folder='../templates')
 
 lm.login_view = 'auth.login' #se não estiver logado mandamos pra route /login
+
+
 
 @lm.user_loader #pra quando o flask precisar de infos do current_user, damos essa função pra ele que retorna um obj do usuário
 def user_loader(id):
@@ -36,7 +40,10 @@ def login():
         else:
             login_user(usuario_db)
             print("Usuário Logado")
-            return redirect(url_for('dashboard.dashboard_home'))
+            #temporário/mock
+            id_curriculo = str(uuid.uuid4())
+            dados_temporarios[id_curriculo] = "teste"
+            return redirect(url_for('dashboard.dashboard_home', id_curriculo=id_curriculo))
 
 @auth.route("/register", methods=['GET', 'POST'])
 def register():
@@ -50,10 +57,11 @@ def register():
         usuario_existe = db.session.query(Usuario).filter_by(email=email, senha=senha).first()
         if usuario_existe:
             print("Usuário já existente.")
+            login_user(usuario_existe)
             return redirect(url_for('auth.register'))
         elif not usuario_existe:
             db.session.add(novo_usuario)
             db.session.commit()
             print(f"USUÁRIO REGISTRADO: {novo_usuario.nome}\nSENHA:{novo_usuario.senha}")
-        login_user(usuario_existe)
+        
         return redirect(url_for('dashboard.dashboard_home'))

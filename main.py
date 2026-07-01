@@ -16,7 +16,8 @@ user = os.getenv("user")
 senha = os.getenv("senha")
 host = os.getenv("host")
 nome_do_banco = os.getenv("nome_do_banco")
-secretkey = os.getenv("secret_key")
+secretkey = os.getenv("secretkey")
+
 app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg://{user}:{senha}@{host}/{nome_do_banco}"
 db.init_app(app)
 
@@ -34,7 +35,7 @@ def home():
         curriculo = ler_pdf()
 
         #salvando o texto do currículo enviado em uma variável de um 3º módulo, pra evitar importação cíclica
-        id_curriculo = str(uuid.uuid4)
+        id_curriculo = str(uuid.uuid4())
         dados_temporarios[id_curriculo] = curriculo
         return redirect(url_for("dashboard.dashboard_home", id_curriculo=id_curriculo))
 
