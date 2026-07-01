@@ -44,11 +44,76 @@ def ler_pdf():
 @login_required
 def dashboard_home(id_curriculo):
     curriculo = dados_temporarios[id_curriculo]
-    print(curriculo)
     resposta = client.models.generate_content(
         model="gemini-2.5-flash",
-        contents="Bom dia, tudo bem?"
-    )
+        contents="""
+Você é uma IA especialista em análise de currículos para vagas de tecnologia, principalmente desenvolvimento web, estágio e nível júnior.
+
+Considere que a data atual é 01/07/2026.
+
+Analise o currículo abaixo e retorne exclusivamente um JSON válido, sem markdown, sem comentários, sem texto antes ou depois.
+
+
+O JSON deve seguir exatamente esta estrutura:
+
+{
+"compatibilidade_junior": "",
+"analise_compatibilidade": "",
+"pontos_fortes": [],
+"pontos_fracos": [],
+"proximos_passos": [],
+"resumo_ia": "",
+"roadmap_personalizado": {
+"titulo": "Plano de estudos de 30 dias",
+"status": "Em andamento",
+"semana_1": {
+"titulo": "",
+"descricao": ""
+},
+"semana_2": {
+"titulo": "",
+"descricao": ""
+},
+"semana_3": {
+"titulo": "",
+"descricao": ""
+},
+"semana_4": {
+"titulo": "",
+"descricao": ""
+}
+}
+}
+
+Regras obrigatórias:
+
+1. Retorne apenas JSON válido.
+2. Não use markdown.
+3. Não use blocos de código.
+4. Não use ```json.
+5. Não escreva nenhuma explicação antes ou depois do JSON.
+6. Não use asteriscos, negrito, títulos com ## ou listas em markdown dentro dos valores.
+7. Use somente texto simples nos valores.
+8. A chave "compatibilidade_junior" deve conter uma porcentagem estimada, por exemplo: "78%".
+9. A chave "analise_compatibilidade" deve conter uma frase curta explicando o nível de compatibilidade com vagas júnior ou estágio.
+10. A chave "pontos_fortes" deve ser uma lista de strings com os principais pontos positivos do currículo.
+11. A chave "pontos_fracos" deve ser uma lista de strings com lacunas técnicas, pontos ausentes ou aspectos que precisam melhorar.
+12. A chave "proximos_passos" deve ser uma lista de strings com ações práticas recomendadas para melhorar o perfil.
+13. A chave "resumo_ia" deve conter um resumo geral da análise em linguagem simples, direta e profissional.
+14. O roadmap deve ser personalizado com base no currículo analisado.
+15. Não invente experiências profissionais, tecnologias, projetos, cursos ou resultados que não estejam no currículo.
+16. Caso alguma informação importante esteja ausente, indique isso como ponto de melhoria.
+17. Use uma linguagem clara, objetiva, profissional e motivadora.
+18. Evite respostas genéricas. A análise deve refletir o conteúdo real do currículo.
+19. A compatibilidade deve considerar principalmente vagas de estágio e desenvolvimento júnior.
+20. Se o currículo for mais voltado a suporte técnico do que desenvolvimento, explique isso nos pontos fracos e nos próximos passos.
+
+Currículo para análise:
+
+
+
+""" + curriculo
+)
     print(resposta.text)
     return render_template("dashboard.html")
 
