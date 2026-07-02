@@ -78,6 +78,16 @@
   gap: 18px;
 }
 
+.login-card .upload-box-compact {
+  min-height: 132px;
+  border-radius: 16px;
+}
+
+.login-card .upload-box-compact strong {
+  color: var(--text);
+  font-size: 0.96rem;
+}
+
 .form-row {
   display: flex;
   justify-content: space-between;

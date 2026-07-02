@@ -37,7 +37,7 @@
       </p>
 
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#upload-curriculo">Enviar meu currículo</a>
+        <a class="btn btn-primary" href="{{ url_for('auth.register') }}">Enviar meu currículo</a>
       </div>
     </section>
 
@@ -59,21 +59,9 @@
 
       <article class="feature-card upload-card" id="upload-curriculo">
         <span class="card-tag">PDF</span>
-        <h2>Envie seu currículo</h2>
-        <p>Faça upload de um arquivo PDF para simular a análise inicial do Mapa do Dev.</p>
-        <form action="" method="post" enctype="multipart/form-data">
-          <label class="upload-box" for="resumeFile">
-          
-            <input type="file" id="resumeFile" name="pdf" accept="application/pdf" />
-            <span class="upload-icon">↥</span>
-            <strong>Clique para selecionar</strong>
-            <small>Somente PDF por enquanto</small>
-          
-          </label>
-          
-      
-          <button class="btn btn-primary btn-full" id="analyzeButton" type="submit">Analisar currículo</button>
-        </form>
+        <h2>Envie seu currículo no cadastro</h2>
+        <p>Crie sua conta e anexe o PDF no mesmo passo para salvar a análise no seu perfil.</p>
+        <a class="btn btn-primary btn-full" href="{{ url_for('auth.register') }}">Ir para cadastro</a>
       </article>
 
       <article class="feature-card small-card">

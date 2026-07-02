@@ -2,6 +2,7 @@ from flask import url_for, render_template, request, redirect, Blueprint
 from models.usuario import Usuario
 from models.database import db
 from routes.storage import dados_temporarios
+from routes.dashboard import ler_pdf, analisar_curriculo
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 import hashlib
 import uuid
@@ -40,20 +41,24 @@ def login():
         else:
             login_user(usuario_db)
             print("Usuário Logado")
-            #temporário/mock
-            id_curriculo = str(uuid.uuid4())
-            dados_temporarios[id_curriculo] = "teste"
-            return redirect(url_for('dashboard.dashboard_home', id_curriculo=id_curriculo))
+            return redirect(url_for('dashboard.dashboard_home'))
 
 @auth.route("/register", methods=['GET', 'POST'])
 def register():
     if request.method == 'GET':
         return render_template("register.html")
     elif request.method == 'POST':
+        curriculo = ler_pdf()
+        
+
         nome = request.form['nomeForm']
         email = request.form['emailForm']
         senha = hash(request.form['senhaForm'])
-        novo_usuario = Usuario(nome=nome, email=email, senha=senha)
+        analise = analisar_curriculo(curriculo)
+
+        #salvando o texto do currículo enviado em uma variável de um 3º módulo, pra evitar importação cíclica
+
+        novo_usuario = Usuario(nome=nome, email=email, senha=senha, analise=analise)
         usuario_existe = db.session.query(Usuario).filter_by(email=email, senha=senha).first()
         if usuario_existe:
             print("Usuário já existente.")
@@ -63,5 +68,6 @@ def register():
             db.session.add(novo_usuario)
             db.session.commit()
             print(f"USUÁRIO REGISTRADO: {novo_usuario.nome}\nSENHA:{novo_usuario.senha}")
+            login_user(novo_usuario)
         
         return redirect(url_for('dashboard.dashboard_home'))

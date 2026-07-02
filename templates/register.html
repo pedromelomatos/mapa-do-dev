@@ -22,9 +22,9 @@
 
       <div>
         <p class="eyebrow">Comece seu mapa</p>
-        <h1>Crie sua conta para salvar sua evolução.</h1>
+        <h1>Crie sua conta com seu currículo.</h1>
         <p>
-          Faça seu cadastro e depois envie o currículo para gerar uma análise personalizada com plano de estudos.
+          Envie seus dados e o PDF no mesmo cadastro para gerar uma análise personalizada com plano de estudos.
         </p>
       </div>
 
@@ -35,16 +35,16 @@
         </div>
         <div>
           <strong>PDF</strong>
-          <span>Análise depois</span>
+          <span>Obrigatório</span>
         </div>
       </div>
     </section>
 
     <section class="auth-panel login-card">
       <h2>Criar conta</h2>
-      <p>Use nome, e-mail e senha para preparar seu perfil no Mapa do Dev.</p>
+      <p>Use nome, e-mail, senha e currículo para preparar seu perfil no Mapa do Dev.</p>
 
-      <form id="registerForm" method="POST">
+      <form id="registerForm" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label for="name">Nome</label>
           <input type="text" id="name" placeholder="Seu nome" required name="nomeForm" />
@@ -60,6 +60,16 @@
           <input type="password" id="password" placeholder="Crie uma senha" required name="senhaForm"/>
         </div>
 
+        <div class="form-group">
+          <label for="resumeFile">Currículo em PDF</label>
+          <label class="upload-box upload-box-compact" for="resumeFile">
+            <input type="file" id="resumeFile" name="pdf" accept="application/pdf" required />
+            <span class="upload-icon">↥</span>
+            <strong>Clique para selecionar</strong>
+            <small id="fileFeedback">Somente PDF por enquanto</small>
+          </label>
+        </div>
+
         <button class="btn btn-primary btn-full" type="submit">Criar cadastro</button>
       </form>
 
@@ -67,5 +77,6 @@
     </section>
   </main>
 
+  <script src="{{ url_for('static', filename='js/register.js') }}"></script>
 </body>
 </html>

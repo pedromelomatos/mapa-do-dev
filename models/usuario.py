@@ -9,3 +9,4 @@ class Usuario(db.Model, UserMixin):
     nome = db.Column(db.String(50), nullable = False)
     email = db.Column(db.String(255), nullable = False, unique = True)
     senha = db.Column(db.String(), nullable = False)
+    analise = db.Column(db.String(), nullable = False)

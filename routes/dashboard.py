@@ -1,5 +1,5 @@
 from flask import url_for, render_template, request, redirect, Blueprint
-from flask_login import login_required
+from flask_login import login_required, current_user
 from routes.storage import dados_temporarios
 from pypdf import PdfReader
 from google import genai
@@ -17,34 +17,7 @@ client = genai.Client(api_key=api_chave)
 
 dashboard = Blueprint('dashboard', __name__, template_folder='../templates')
 
-def limpar_texto(texto):
-    #re.sub(padrão, substituição, variavel)
-    texto = re.sub(r'\n+', '\n', texto)
-    texto = re.sub(r'[ \t]+', ' ', texto)
-    return texto.strip()
-
-def ler_pdf():
-    arquivo = request.files.get("pdf")
-
-    pdf_na_memoria = BytesIO(arquivo.read()) #salvando pdf na memória ao invés de ter q jogar pro banco
-
-    curriculo = PdfReader(pdf_na_memoria)
-
-    texto_final = ""
-
-    for pagina in curriculo.pages:
-        texto_da_pagina = pagina.extract_text()
-
-        if texto_da_pagina:
-            texto_final += texto_da_pagina 
-
-    return limpar_texto(texto_final)
-
-
-@dashboard.route("/dashboard/<id_curriculo>", methods=['GET', 'POST'])
-@login_required
-def dashboard_home(id_curriculo):
-    curriculo = dados_temporarios[id_curriculo]
+def analisar_curriculo(curriculo):
     resposta = client.models.generate_content(
         model="gemini-2.5-flash",
         contents="""
@@ -115,7 +88,37 @@ Currículo para análise:
 
 """ + curriculo
 )
-    print(resposta.text)
-    analise = json.loads(resposta.text)
+    analise = resposta.text
+    return analise
+
+def limpar_texto(texto):
+    #re.sub(padrão, substituição, variavel)
+    texto = re.sub(r'\n+', '\n', texto)
+    texto = re.sub(r'[ \t]+', ' ', texto)
+    return texto.strip()
+
+def ler_pdf():
+    arquivo = request.files.get("pdf")
+
+    pdf_na_memoria = BytesIO(arquivo.read()) #salvando pdf na memória ao invés de ter q jogar pro banco
+
+    curriculo = PdfReader(pdf_na_memoria)
+
+    texto_final = ""
+
+    for pagina in curriculo.pages:
+        texto_da_pagina = pagina.extract_text()
+
+        if texto_da_pagina:
+            texto_final += texto_da_pagina 
+
+    return limpar_texto(texto_final)
+
+
+@dashboard.route("/dashboard/", methods=['GET', 'POST'])
+@login_required
+def dashboard_home():
+    dados_analise = current_user.analise
+    analise = json.loads(dados_analise)
     return render_template("dashboard.html", analise=analise)
 
